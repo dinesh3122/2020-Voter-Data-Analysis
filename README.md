@@ -1,5 +1,4 @@
 ## United States Elections Glossary
-#### By Davis Westover, Dinesh Rustagi, Arman Keshavarz, and Ryan Chiang
 
 - [Introduction](#intro): Overview of the United States Elections section.
 - [Data Selection](#data): Explanation of the data selection process for United States Elections analysis.
