@@ -32,11 +32,11 @@ display(Image(url=image_url))
 <a id="intro"></a>
 ##                                                           Relation between Voting, Firearm Ownership, and Race
 
-    United States politics are often considered to be extremely divided. Issues stemming from racial division, firearms ownership, and geographical location can dictate often how individuals will align themselves politically. With the system of the States being a republic and not a direct democracy, people will often vote in waves and utilize representatives to speak in their stead. In this project, we will dive into the extraneous factors dictating voting and decisions in Atlanta and New York to determine such. Utilizing information from Google Cloud and Jupyter as our interface, we propose the question; is there a correlation between firearm ownership and race in voter participation?
+United States politics are often considered to be extremely divided. Issues stemming from racial division, firearms ownership, and geographical location can dictate often how individuals will align themselves politically. With the system of the States being a republic and not a direct democracy, people will often vote in waves and utilize representatives to speak in their stead. In this project, we will dive into the extraneous factors dictating voting and decisions in Atlanta and New York to determine such. Utilizing information from Google Cloud and Jupyter as our interface, we propose the question; is there a correlation between firearm ownership and race in voter participation?
   
-    Immediate steps in determining our proposed question began with the manipulation of the provided parquet files in the Google Cloud bucket. In this public resource, our group utilized shell to begin loading the data and through this process, selected the cities of New York and Atlanta as our exploration topics. Loading this information into Big Query and likewise Jupyter, information was combed for interesting subjects that could influence voting decisions. The overview of information proved unique. Queries relating to Georgia displayed that there was a disproportionate amount of individuals who voted and owned firearms. This revelation further reinforced that the topic held merit. Later queries displayed the firearm demographics of voting alignment along with their general decisions. Tailing from this further queries went into more personal topics such as if firearm owners voted based on party which displayed a mixed bag of results. Ratios that were generally recorded were that of firearms owners 90.64% voted which appears rather high for any voting population demographic. A deeper dive into individual cities was necessary to explore this discovery.
+Immediate steps in determining our proposed question began with the manipulation of the provided parquet files in the Google Cloud bucket. In this public resource, our group utilized shell to begin loading the data and through this process, selected the cities of New York and Atlanta as our exploration topics. Loading this information into Big Query and likewise Jupyter, information was combed for interesting subjects that could influence voting decisions. The overview of information proved unique. Queries relating to Georgia displayed that there was a disproportionate amount of individuals who voted and owned firearms. This revelation further reinforced that the topic held merit. Later queries displayed the firearm demographics of voting alignment along with their general decisions. Tailing from this further queries went into more personal topics such as if firearm owners voted based on party which displayed a mixed bag of results. Ratios that were generally recorded were that of firearms owners 90.64% voted which appears rather high for any voting population demographic. A deeper dive into individual cities was necessary to explore this discovery.
    
-    With this combined information, the project began with further dividing the topics and influencing factors into a comprehensive report. In this summary we will explore the plausibility on voter turn out with influence on their ethnity along with a time series displaying changes in behavior or citizens.
+With this combined information, the project began with further dividing the topics and influencing factors into a comprehensive report. In this summary we will explore the plausibility on voter turn out with influence on their ethnity along with a time series displaying changes in behavior or citizens.
 
 <a id="data"></a>
 ## Data Selection
@@ -168,7 +168,7 @@ df_atl.columns
 
 
     
-    Starting by our information selection along with the attributes examined, the project outlines data through several extraneous factors and elements to help dictate the direction we decide to head from. In the above section, our data is loaded and prepared for further manipulation through Spark SQL service to help partition and comb the data into our later linear regression models, graphs, and overarching analysis.
+Starting by our information selection along with the attributes examined, the project outlines data through several extraneous factors and elements to help dictate the direction we decide to head from. In the above section, our data is loaded and prepared for further manipulation through Spark SQL service to help partition and comb the data into our later linear regression models, graphs, and overarching analysis.
 
 
 ```python
@@ -215,9 +215,9 @@ atl_race = atl_race.toPandas().sort_values(by='Ethnicity')
 
                                                                                     
 
-    Beginning with this subject of ethnicity, we decided to visualize our ethnic makeup without extreneous factors to get an idea of base demographics. Declaring the racial makeup of NYC to observe in various graphs, NYC race was queried to show the percentage of ethnic makeup of the city. It appears that although being diverse in population, New York City still remains Caucasian/European dominant. This was then done by Atlanta as well to a result that displayed African Americans in the City of Atlanta to be the prodominant ethnicity in the City. This was then followed by European/Caucasians.
+Beginning with this subject of ethnicity, we decided to visualize our ethnic makeup without extreneous factors to get an idea of base demographics. Declaring the racial makeup of NYC to observe in various graphs, NYC race was queried to show the percentage of ethnic makeup of the city. It appears that although being diverse in population, New York City still remains Caucasian/European dominant. This was then done by Atlanta as well to a result that displayed African Americans in the City of Atlanta to be the prodominant ethnicity in the City. This was then followed by European/Caucasians.
 
-    Comparing New York and Atlanta, Both have a high Caucasian population. They differ in that Atlanta has a much higher African-American Population rate, while New York has higher rates of Hispanic and Asian Ethnicities. These correlations will be later explored in the exploratory analysis section along with visualizations.
+Comparing New York and Atlanta, Both have a high Caucasian population. They differ in that Atlanta has a much higher African-American Population rate, while New York has higher rates of Hispanic and Asian Ethnicities. These correlations will be later explored in the exploratory analysis section along with visualizations.
 
 <a id="ethnic"></a>
 
@@ -260,7 +260,7 @@ plt.show()
     
 
 
-    Utilitizing histograms, we are easily able to assertain the ethnic demographic and begin on the secondary observation, firearm ownership which is then examined by ethnicity to assist in moving towards our research question along with our later algorithm. Below, Ethnicity is grouped in order by the 2020 election year and a simple yes or no query if said ethnic demographic owned a firearm. A percentage is then returned to help in determining the significance of owning a firearm and voter participation.
+Utilitizing histograms, we are easily able to assertain the ethnic demographic and begin on the secondary observation, firearm ownership which is then examined by ethnicity to assist in moving towards our research question along with our later algorithm. Below, Ethnicity is grouped in order by the 2020 election year and a simple yes or no query if said ethnic demographic owned a firearm. A percentage is then returned to help in determining the significance of owning a firearm and voter participation.
 
 <a id="gundata"></a>
 ## Firearm Data and Visualization
@@ -308,11 +308,11 @@ atl_gunrace = atl_gunrace.toPandas().sort_values(by='Ethnicity')
 
                                                                                     
 
-    It appears that throughout both cities, citizens on all averages are more likely to participate politically if they own a firearm, this indicates that our direction and question proved merit and can be further examined and likely modeled.
+It appears that throughout both cities, citizens on all averages are more likely to participate politically if they own a firearm, this indicates that our direction and question proved merit and can be further examined and likely modeled.
 
 <a id="fireparty"></a>
 ## Firearm Political Alignment and Visualization
-    In this instance, we are observing the correlation between firearm ownership and individual political alignment in both cities. The suprising factor related to each is that Democrats in both cities appear to be dominant in gun ownership versus the previously assumed Republican party. This could be primarily due to the dominant population being Democrat however a point to note is the disproportionate firearm ownership displayed in Atlanta by Republicans on gun owner percentage with only 11.14% of the population owning 36.18% of all firearms. This is explored in the later topics. The below graphs set next to each other first each political party's representation in the general population, then each party's representation among the gun owning population.
+In this instance, we are observing the correlation between firearm ownership and individual political alignment in both cities. The suprising factor related to each is that Democrats in both cities appear to be dominant in gun ownership versus the previously assumed Republican party. This could be primarily due to the dominant population being Democrat however a point to note is the disproportionate firearm ownership displayed in Atlanta by Republicans on gun owner percentage with only 11.14% of the population owning 36.18% of all firearms. This is explored in the later topics. The below graphs set next to each other first each political party's representation in the general population, then each party's representation among the gun owning population.
 
 
 ```python
@@ -366,7 +366,7 @@ nyc_partygun = nyc_partygun.toPandas().sort_values(by='Party')
 
                                                                                     
 
-    Quick examination displays the percentages of New York City and Atlanta along with their respective political population alignment. Both appear to be prodominately Democratic as cities tend to be 'blue' hubs. In New York, gun owner representation closely aligns with demographic rates. However, in Atlanta, despite making up only 11.15% of the population, Republicans make up nearly 36.2% of firearm owners. 
+Quick examination displays the percentages of New York City and Atlanta along with their respective political population alignment. Both appear to be prodominately Democratic as cities tend to be 'blue' hubs. In New York, gun owner representation closely aligns with demographic rates. However, in Atlanta, despite making up only 11.15% of the population, Republicans make up nearly 36.2% of firearm owners. 
 
 
 ```python
@@ -400,7 +400,7 @@ plt.show()
 
 <a id="ethnicfire"></a>
 ## Ethnicity Versus Firearm Ownership
-    In this section we explore the ratios between firearm ownership and ethnicity in the cities of New York and Atlanta. The following information appeared suprising as in all catagories in both cities, firearm owners voted more often and participated much more regardless of ethnic background. This data allows us to proceed onto the next phase of this project explorative topic. 
+In this section we explore the ratios between firearm ownership and ethnicity in the cities of New York and Atlanta. The following information appeared suprising as in all catagories in both cities, firearm owners voted more often and participated much more regardless of ethnic background. This data allows us to proceed onto the next phase of this project explorative topic. 
 
 
 ```python
@@ -430,11 +430,11 @@ plt.show()
     
 
 
-    Loading through spark SQL, information related to the firearm ownership along with ethnic background was queried for New York City to observe the voting population of individuals with firearms and their percentage of those that had participated in voting. It appears on average voters with firearms participated on a greater percentage than those that did not pocess guns. 
+Loading through spark SQL, information related to the firearm ownership along with ethnic background was queried for New York City to observe the voting population of individuals with firearms and their percentage of those that had participated in voting. It appears on average voters with firearms participated on a greater percentage than those that did not pocess guns. 
 
 <a id="timeseries"></a>
 ## New Data Curation and Time Series
-    To better assess our information the construction of voter participation through ethnicity verses election period is constructed. In this time series it is denoted that on average all races and ethnicites tend to participate more in general politics and voted. However as this factor is across the board it is plausible to ignore this factor in relations to firearm ownership as there appears to be no significant outliers on all racial demographics.
+To better assess our information the construction of voter participation through ethnicity verses election period is constructed. In this time series it is denoted that on average all races and ethnicites tend to participate more in general politics and voted. However as this factor is across the board it is plausible to ignore this factor in relations to firearm ownership as there appears to be no significant outliers on all racial demographics.
 
 
 ```python
@@ -489,13 +489,13 @@ plt.show()
     
 
 
-    Through this visualization, we can discern intriguing trends in voter participation starting from 2000. Initially, white voters consistently exhibited higher turnout rates compared to other racial groups, sometimes showcasing a gap of over 10% from the least participatory race. However, over time, this disparity has gradually diminished, owing to extensive voter registration initiatives.
+Through this visualization, we can discern intriguing trends in voter participation starting from 2000. Initially, white voters consistently exhibited higher turnout rates compared to other racial groups, sometimes showcasing a gap of over 10% from the least participatory race. However, over time, this disparity has gradually diminished, owing to extensive voter registration initiatives.
 
-    Moreover, we observe a noteworthy surge in Black voter participation during the years spanning from 2008 to 2014. This peak coincides with the tenure of President Obama, whose representation offered a significant symbol of empowerment and mobilization for the Black community.
+Moreover, we observe a noteworthy surge in Black voter participation during the years spanning from 2008 to 2014. This peak coincides with the tenure of President Obama, whose representation offered a significant symbol of empowerment and mobilization for the Black community.
 
-    Similarly, there is a noticeable uptick in voter engagement among East and South Asian populations in recent years. This surge aligns with the emergence of Asian candidates in the political landscape, suggesting a potential influence on community mobilization and voter participation.
+Similarly, there is a noticeable uptick in voter engagement among East and South Asian populations in recent years. This surge aligns with the emergence of Asian candidates in the political landscape, suggesting a potential influence on community mobilization and voter participation.
 
-    Given the distinct trends depicted, the impact of race on voter participation becomes markedly evident.
+Given the distinct trends depicted, the impact of race on voter participation becomes markedly evident.
 
 <a id="align"></a>
 ## Ethnicity and Political Alignment
@@ -570,7 +570,7 @@ nyc_ethnic_party_fin.columns = ['Ethnicity','Party','Percentage']
 <a id="aligntable"></a>
 ## Visualization of Ethnicty and Alignment
 
-    Referencing these graphs, it appears that the prodominant leaning for most parties if not Non-Partisan would be Democrat, heavily outweighing the Republican viewpoints. This could be primarily due to cities being Democrat or Non-partisan hubs which explains the distribution. Although this is suprising for the points of firearm owners, it also provides insight to the potential non-correlated relations between firearms and political alignment or ethnicity. As these figures contradict previous or historical assumptions on more conservative individuals appreciating guns more, it also provides insight on the validity of our proposed question and continued research.
+Referencing these graphs, it appears that the prodominant leaning for most parties if not Non-Partisan would be Democrat, heavily outweighing the Republican viewpoints. This could be primarily due to cities being Democrat or Non-partisan hubs which explains the distribution. Although this is suprising for the points of firearm owners, it also provides insight to the potential non-correlated relations between firearms and political alignment or ethnicity. As these figures contradict previous or historical assumptions on more conservative individuals appreciating guns more, it also provides insight on the validity of our proposed question and continued research.
 
 
 ```python
@@ -622,11 +622,11 @@ plt.show()
     
 
 
-    In these figures, it appears in Atlanta that the majority of all ethnicities are Democrat which is suprising for a long time historical 'red' state. Another figure suprise is New York with the majority of other ethnicities aligning Non-Partisan with African American voting prodominately Democrat. Although these figures do shed light on the larger Geo-Political Scale, for the purposes of this project it provides proof of firearm ownership being independent of these two other large factors in the voting block.
+In these figures, it appears in Atlanta that the majority of all ethnicities are Democrat which is suprising for a long time historical 'red' state. Another figure suprise is New York with the majority of other ethnicities aligning Non-Partisan with African American voting prodominately Democrat. Although these figures do shed light on the larger Geo-Political Scale, for the purposes of this project it provides proof of firearm ownership being independent of these two other large factors in the voting block.
     
-    Observing the above plot it is clear that there is prodominately Democratic or Non-Partisan leanings for all ethnicities in both cities. Although this graph series provides this insight, it does not necessarily explain the discrepencies between voters in their ethnic blocks and the large increase upon owning a firearm. In our analysis this is instead indicative that firearm ownership is non-correlated with ethnicity or political aligance but instead simply a motivator for individuals to engage in United States politics. To explore this topic and model such assumptions a machine learning and linear regressional model is constructed to express such.
+Observing the above plot it is clear that there is prodominately Democratic or Non-Partisan leanings for all ethnicities in both cities. Although this graph series provides this insight, it does not necessarily explain the discrepencies between voters in their ethnic blocks and the large increase upon owning a firearm. In our analysis this is instead indicative that firearm ownership is non-correlated with ethnicity or political aligance but instead simply a motivator for individuals to engage in United States politics. To explore this topic and model such assumptions a machine learning and linear regressional model is constructed to express such.
 
-    Below is a machine learning model in which to test a prediction on the likelihood an individual with a firearm is to vote. Along with an accuracry counter to indicate the validity of such. In this portion of the topic Logistic Regression along with Elastic Net. Below is an amalgimation of data filtration, selection, cleaning and finally visualization. 
+Below is a machine learning model in which to test a prediction on the likelihood an individual with a firearm is to vote. Along with an accuracry counter to indicate the validity of such. In this portion of the topic Logistic Regression along with Elastic Net. Below is an amalgimation of data filtration, selection, cleaning and finally visualization. 
 
 <a id="ml"></a>
 ## Machine Learning 
@@ -893,15 +893,15 @@ plt.show()
     
 
 
-    These two explorations display a correlation between firearm ownership and voting turnout as on average firearm owners in all categories are higher. Despite this, there are further explorative topics to analyze such as the racial demographic of these cities that can influence voting. Historically, non-Caucasian individuals are more likely to align themselves with “blue” or social politics more often. In the subsequent sections, we explore the racial demographics of New York and Atlanta to see if these are the causes of such discrepancies. The above machine learning algorithm has displayed our accuracy and finalization of the project subject.
+These two explorations display a correlation between firearm ownership and voting turnout as on average firearm owners in all categories are higher. Despite this, there are further explorative topics to analyze such as the racial demographic of these cities that can influence voting. Historically, non-Caucasian individuals are more likely to align themselves with “blue” or social politics more often. In the subsequent sections, we explore the racial demographics of New York and Atlanta to see if these are the causes of such discrepancies. The above machine learning algorithm has displayed our accuracy and finalization of the project subject.
 
 
 <a id="con"></a>
 ## Conclusion
 
 
-    United States Politics are often convoluted with many extraneous factors dictation how individuals will vote and participate in elections. In this project we explored the data relating with Ethnicity, Political Alignment, and Firearm Ownership in the cities of New York and Atlanta. Through this exploration we saw clear trends between gun ownership and voter turn out in all departments regardless of political alignment or ethnicity. Although some assumptions can be made due to population factors or demographic, the implication on firearm ownership influence on individuals has made it possible to accurately assess citizen involvment in election periods. 
+United States Politics are often convoluted with many extraneous factors dictation how individuals will vote and participate in elections. In this project we explored the data relating with Ethnicity, Political Alignment, and Firearm Ownership in the cities of New York and Atlanta. Through this exploration we saw clear trends between gun ownership and voter turn out in all departments regardless of political alignment or ethnicity. Although some assumptions can be made due to population factors or demographic, the implication on firearm ownership influence on individuals has made it possible to accurately assess citizen involvment in election periods. 
     
-    Some factors dictation project bias could be the selection of cities that have prodominately democratic leaning but as a project base this is perhaps due to the particular subjects and different cities may lead to different results. However, throughout the United States cities tend to be Democrat leaning as assertained through census figures and election figures. Likewise, the bias following potential ethnic dispersion is also overwritten as Atlanta follows a different ethnic majority but still retains high firearm ownership which dispells potential bias. Across the board through race and political alignment those with guns are roughly ~9% more likely to vote. This is discovered through the various visualizations and graphs dictating such. 
+Some factors dictation project bias could be the selection of cities that have prodominately democratic leaning but as a project base this is perhaps due to the particular subjects and different cities may lead to different results. However, throughout the United States cities tend to be Democrat leaning as assertained through census figures and election figures. Likewise, the bias following potential ethnic dispersion is also overwritten as Atlanta follows a different ethnic majority but still retains high firearm ownership which dispells potential bias. Across the board through race and political alignment those with guns are roughly ~9% more likely to vote. This is discovered through the various visualizations and graphs dictating such. 
     
-    Usage in the grand political scheme is extremely impressive as the United States sports the highest firearms per capita in the world and as a political tool, to enlist the voting power of a population that is more inclined to partipate in elections is essential. Utilities for such can be used through advertisement and propoganda relating to firearms and this information can be utilized in targeting general population demographics and cities regardless of alignment. As explored through the data, Democrats in both cities have a higher firearm ownership then the previously assumed Republican followers. Overall this data and project can assist in percision strikes or political campaigns throughout the United States.
+Usage in the grand political scheme is extremely impressive as the United States sports the highest firearms per capita in the world and as a political tool, to enlist the voting power of a population that is more inclined to partipate in elections is essential. Utilities for such can be used through advertisement and propoganda relating to firearms and this information can be utilized in targeting general population demographics and cities regardless of alignment. As explored through the data, Democrats in both cities have a higher firearm ownership then the previously assumed Republican followers. Overall this data and project can assist in percision strikes or political campaigns throughout the United States.
